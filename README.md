@@ -108,7 +108,7 @@ intacto sin modificaciones:
 | `PacienteEdicionModalDto` | Pre-llenado del formulario de edición con `FechaNacimiento` |
 | `CrearPacienteDto` | Entrada para registrar un nuevo paciente |
 | `ActualizarPacienteDto` | Entrada para editar — el documento es inmutable |
-| `PaginacionDto` | Parámetros de paginación con límite máximo de 50 registros |
+| `PaginacionDto` | Parámetros de paginación con límite máximo de 10 registros |
 | `PaginacionResponseDto<T>` | Respuesta paginada genérica con metadata |
 
 ---
@@ -133,6 +133,18 @@ public static Paciente Crear(string numeroDocumento, string nombreCompleto,
     // ... más validaciones
     return new Paciente { ... };
 }
+```
+
+### Adapter
+Mapster actúa como adaptador entre el modelo de dominio y los DTOs. La entidad 
+`Paciente` tiene propiedades como `NumeroDocumento` y `NombreCompleto`, mientras 
+que `PacienteDto` las expone como `Documento` y `Nombre`. Mapster traduce entre 
+estos dos "lenguajes" sin que ninguna de las dos capas tenga que conocerse entre sí.
+```csharp
+config.NewConfig()
+    .Map(dest => dest.Documento, org => org.NumeroDocumento)
+    .Map(dest => dest.Nombre, org => org.NombreCompleto)
+    .Map(dest => dest.Edad, org => org.CalcularEdad());
 ```
 
 ## Principios SOLID que aplique en la prueba
@@ -218,7 +230,7 @@ cd GestorPacientes
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=tu-servidor;Database=GestorPacientesDB;Trusted_Connection=True;"
+    "DefaultConnection": "Server=TU_SERVIDOR;Database=GestorPacientesDB;Trusted_Connection=True;"
   }
 }
 ```
