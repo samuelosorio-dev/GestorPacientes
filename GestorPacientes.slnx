@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="GestorPacientes.API/GestorPacientes.API.csproj" />
+  <Project Path="GestorPacientes.Application/GestorPacientes.Application.csproj" />
+  <Project Path="GestorPacientes.Domain/GestorPacientes.Domain.csproj" />
+  <Project Path="GestorPacientes.Infrastructure/GestorPacientes.Infrastructure.csproj" />
+  <Project Path="GestorPacientes.Web/GestorPacientes.Web.csproj" />
+</Solution>

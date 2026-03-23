@@ -1,0 +1,27 @@
+﻿<div id="modalConfirmar" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-xl w-full max-w-sm mx-4">
+        <div class="flex items-center justify-between p-6 rounded-t-xl bg-[#0a2e1a]">
+            <h2 class="text-lg font-semibold text-white">Confirmar acción</h2>
+            <button onclick="cerrarModalConfirmar()" class="text-emerald-300 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+            </button>
+        </div>
+        <div class="p-6">
+            <p class="text-sm text-gray-600">
+                ¿Estás seguro de que deseas desactivar a
+                <span id="nombreConfirmar" class="font-semibold text-gray-800"></span>?
+                Esta acción no se puede revertir.
+            </p>
+        </div>
+        <div class="flex justify-end gap-3 px-6 pb-6">
+            <button onclick="cerrarModalConfirmar()"
+                    class="px-4 py-2 text-sm text-gray-600 font-medium border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+                Cancelar
+            </button>
+            <button onclick="confirmarDesactivar()"
+                    class="px-4 py-2 text-sm bg-red-500 hover:bg-red-600 text-white font-medium rounded-lg transition">
+                Desactivar
+            </button>
+        </div>
+    </div>
+</div>
